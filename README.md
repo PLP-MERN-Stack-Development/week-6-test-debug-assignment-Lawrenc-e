@@ -1,88 +1,306 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19953491&assignment_repo_type=AssignmentRepo)
-# Testing and Debugging MERN Applications
+# MERN Bug Tracker
 
-This assignment focuses on implementing comprehensive testing strategies for a MERN stack application, including unit testing, integration testing, and end-to-end testing, along with debugging techniques.
+A comprehensive bug tracking application built with the MERN stack (MongoDB, Express.js, React, Node.js) featuring extensive testing, debugging capabilities, and modern development practices.
 
-## Assignment Overview
+## 🚀 Features
 
-You will:
-1. Set up testing environments for both client and server
-2. Write unit tests for React components and server functions
-3. Implement integration tests for API endpoints
-4. Create end-to-end tests for critical user flows
-5. Apply debugging techniques for common MERN stack issues
+### Core Functionality
 
-## Project Structure
+- **Bug Management**: Create, read, update, and delete bug reports
+- **Advanced Filtering**: Filter bugs by status, severity, priority, and search functionality
+- **Pagination**: Efficient handling of large datasets
+- **Statistics Dashboard**: Real-time bug statistics and analytics
+- **Responsive Design**: Mobile-friendly interface with Tailwind CSS
 
-```
-mern-testing/
-├── client/                 # React front-end
-│   ├── src/                # React source code
-│   │   ├── components/     # React components
-│   │   ├── tests/          # Client-side tests
-│   │   │   ├── unit/       # Unit tests
-│   │   │   └── integration/ # Integration tests
-│   │   └── App.jsx         # Main application component
-│   └── cypress/            # End-to-end tests
-├── server/                 # Express.js back-end
-│   ├── src/                # Server source code
-│   │   ├── controllers/    # Route controllers
-│   │   ├── models/         # Mongoose models
-│   │   ├── routes/         # API routes
-│   │   └── middleware/     # Custom middleware
-│   └── tests/              # Server-side tests
-│       ├── unit/           # Unit tests
-│       └── integration/    # Integration tests
-├── jest.config.js          # Jest configuration
-└── package.json            # Project dependencies
-```
+### Bug Report Features
 
-## Getting Started
+- Detailed bug information (title, description, severity, priority, status)
+- Steps to reproduce, expected vs actual behavior
+- Tag system for categorization
+- Assignment tracking
+- Creation and update timestamps
+- Age calculation for bugs
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week6-Assignment.md` file
-4. Explore the starter code and existing tests
-5. Complete the tasks outlined in the assignment
+### Technical Features
 
-## Files Included
+- **RESTful API** with Express.js
+- **MongoDB** with Mongoose ODM
+- **React** with Context API for state management
+- **Form Validation** with react-hook-form and express-validator
+- **Error Handling** with custom middleware and error boundaries
+- **Comprehensive Testing** with Jest and React Testing Library
+- **Debugging Tools** and logging utilities
 
-- `Week6-Assignment.md`: Detailed assignment instructions
-- Starter code for a MERN application with basic test setup:
-  - Sample React components with test files
-  - Express routes with test files
-  - Jest and testing library configurations
-  - Example tests for reference
+## 🛠️ Tech Stack
 
-## Requirements
+### Backend
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
+- **Node.js** with Express.js
+- **MongoDB** with Mongoose
+- **Express Validator** for input validation
+- **Helmet** for security headers
+- **Morgan** for HTTP request logging
+- **CORS** for cross-origin requests
+- **Jest** and **Supertest** for testing
+- **MongoDB Memory Server** for test database
+
+### Frontend
+
+- **React** with hooks and Context API
+- **React Router** for navigation
+- **React Hook Form** for form management
+- **Axios** for API requests
+- **Tailwind CSS** for styling
+- **Lucide React** for icons
+- **React Hot Toast** for notifications
+- **React Testing Library** for component testing
+
+## 📦 Installation
+
+### Prerequisites
+
+- Node.js (v16+ recommended)
+- MongoDB (local installation or MongoDB Atlas)
 - npm or yarn
-- Basic understanding of testing concepts
 
-## Testing Tools
+### Setup Instructions
 
-- Jest: JavaScript testing framework
-- React Testing Library: Testing utilities for React
-- Supertest: HTTP assertions for API testing
-- Cypress/Playwright: End-to-end testing framework
-- MongoDB Memory Server: In-memory MongoDB for testing
+1. **Clone the repository**
 
-## Submission
+   ```bash
+   git clone <repository-url>
+   cd mern-bug-tracker
+   ```
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+2. **Install root dependencies**
 
-1. Complete all required tests (unit, integration, and end-to-end)
-2. Achieve at least 70% code coverage for unit tests
-3. Document your testing strategy in the README.md
-4. Include screenshots of your test coverage reports
-5. Demonstrate debugging techniques in your code
+   ```bash
+   npm install
+   ```
 
-## Resources
+3. **Install backend dependencies**
 
-- [Jest Documentation](https://jestjs.io/docs/getting-started)
-- [React Testing Library Documentation](https://testing-library.com/docs/react-testing-library/intro/)
-- [Supertest Documentation](https://github.com/visionmedia/supertest)
-- [Cypress Documentation](https://docs.cypress.io/)
-- [MongoDB Testing Best Practices](https://www.mongodb.com/blog/post/mongodb-testing-best-practices) 
+   ```bash
+   cd backend
+   npm install
+   ```
+
+4. **Install frontend dependencies**
+
+   ```bash
+   cd ../frontend
+   npm install
+   ```
+
+5. **Configure environment variables**
+
+   ```bash
+   cd ../backend
+   cp .env.example .env
+   # Edit .env with your MongoDB connection string and other settings
+   ```
+
+6. **Start MongoDB**
+
+   - Local: `mongod`
+   - Or use MongoDB Atlas cloud database
+
+7. **Run the application**
+
+   ```bash
+   # From the root directory
+   npm run dev
+   ```
+
+   Or start services separately:
+
+   ```bash
+   # Terminal 1 - Backend
+   cd backend && npm run dev
+
+   # Terminal 2 - Frontend
+   cd frontend && npm run dev
+   ```
+
+8. **Access the application**
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+
+## 🧪 Testing
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run backend tests only
+npm run test:backend
+
+# Run frontend tests only
+npm run test:frontend
+
+# Run tests with coverage
+cd frontend && npm run test:coverage
+```
+
+### Testing Strategy
+
+#### Backend Testing
+
+- **Unit Tests**: Individual functions and utilities
+- **Integration Tests**: API endpoints with real database operations
+- **Database Mocking**: MongoDB Memory Server for isolated testing
+- **Error Handling**: Testing various error scenarios
+
+#### Frontend Testing
+
+- **Component Tests**: Individual React components
+- **Integration Tests**: Component interactions and API calls
+- **Form Validation**: Testing form inputs and validation
+- **User Interactions**: Testing user events and state changes
+
+### Test Coverage
+
+- Backend: Controllers, models, utilities, middleware
+- Frontend: Components, services, context, forms
+- Error scenarios and edge cases
+- API integration and data flow
+
+## 🐛 Debugging
+
+### Debugging Tools and Techniques
+
+#### Backend Debugging
+
+1. **Console Logging**: Custom debug utility with environment-based logging
+2. **Node.js Inspector**:
+   ```bash
+   cd backend && npm run debug
+   # Then open chrome://inspect in Chrome
+   ```
+3. **Morgan Logging**: HTTP request logging
+4. **Error Middleware**: Comprehensive error handling and logging
+
+#### Frontend Debugging
+
+1. **React Developer Tools**: Component inspection and state debugging
+2. **Chrome DevTools**: Network requests, console logging, performance
+3. **Error Boundaries**: Graceful error handling and reporting
+4. **Context Debugging**: State management debugging
+
+#### Debug Features
+
+- **Debug Logging**: Environment-based logging system
+- **Performance Monitoring**: Request timing and memory usage
+- **Error Tracking**: Comprehensive error logging and reporting
+- **Network Debugging**: API request/response logging
+
+### Common Debugging Scenarios
+
+1. **API Issues**: Check network tab, server logs, and error responses
+2. **Database Problems**: MongoDB connection, query debugging
+3. **Form Validation**: Client-side and server-side validation errors
+4. **State Management**: React Context debugging and state flow
+5. **Performance Issues**: Component re-renders, API optimization
+
+## 🔧 Error Handling
+
+### Backend Error Handling
+
+- **Custom Error Middleware**: Centralized error processing
+- **Validation Errors**: Input validation with detailed messages
+- **Database Errors**: MongoDB error handling and transformation
+- **HTTP Status Codes**: Proper status code usage
+- **Error Logging**: Comprehensive error logging system
+
+### Frontend Error Handling
+
+- **Error Boundaries**: React error boundary implementation
+- **API Error Handling**: Axios interceptors for error processing
+- **Form Validation**: Real-time validation with user feedback
+- **Toast Notifications**: User-friendly error messages
+- **Fallback UI**: Graceful degradation for errors
+
+## 📁 Project Structure
+
+```
+mern-bug-tracker/
+├── backend/
+│   ├── controllers/         # Route controllers
+│   ├── models/             # Mongoose models
+│   ├── routes/             # Express routes
+│   ├── middleware/         # Custom middleware
+│   ├── utils/              # Utility functions
+│   ├── __tests__/          # Backend tests
+│   └── server.js           # Server entry point
+├── frontend/
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   ├── context/        # React Context
+│   │   ├── services/       # API services
+│   │   ├── __tests__/      # Frontend tests
+│   │   └── App.jsx         # App component
+│   ├── public/             # Static assets
+│   └── index.html          # HTML template
+├── package.json            # Root package.json
+└── README.md              # This file
+```
+
+## 🚀 Deployment
+
+### Backend Deployment
+
+1. **Environment Variables**: Set production environment variables
+2. **Database**: Use MongoDB Atlas for production
+3. **Security**: Enable helmet, CORS configuration
+4. **Logging**: Configure production logging
+
+### Frontend Deployment
+
+1. **Build**: `npm run build` in frontend directory
+2. **Static Hosting**: Deploy to Netlify, Vercel, or similar
+3. **API Configuration**: Update API base URL for production
+
+### Full-Stack Deployment
+
+- **Backend**: Deploy to Heroku, Railway, or DigitalOcean
+- **Frontend**: Deploy to Netlify, Vercel, or GitHub Pages
+- **Database**: MongoDB Atlas for production database
+- **Environment**: Configure production environment variables
+
+## 📊 API Documentation
+
+### Endpoints
+
+#### Bugs
+
+- `GET /api/bugs` - Get all bugs (with filtering and pagination)
+- `GET /api/bugs/:id` - Get single bug
+- `POST /api/bugs` - Create new bug
+- `PUT /api/bugs/:id` - Update bug
+- `DELETE /api/bugs/:id` - Delete bug
+- `GET /api/bugs/stats` - Get bug statistics
+
+#### Health Check
+
+- `GET /api/health` - Server health check
+
+### Request/Response Examples
+
+#### Create Bug
+
+```json
+POST /api/bugs
+{
+  "title": "Login button not working",
+  "description": "The login button doesn't respond when clicked",
+  "severity": "high",
+  "priority": "high",
+  "reportedBy": "John Doe",
+  "stepsToReproduce": "1. Go to login page\n2. Click login button\n3. Nothing happens",
+  "expectedBehavior": "Should redirect to dashboard",
+  "actualBehavior": "Button doesn't respond",
+  "tags": ["frontend", "authentication"]
+}
+```
